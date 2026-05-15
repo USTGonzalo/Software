@@ -4,19 +4,36 @@
  */
 package views;
 
+import DataBase.Conexion;
+import Models.Tecnicos;
+import cache.CacheTecnicos;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author usuario
  */
 public class Login extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
     /**
      * Creates new form Login
      */
+    Tecnicos tecnico = new Tecnicos();
+
     public Login() {
         initComponents();
+
+        this.setLocationRelativeTo(null);
+        //this.pack();
+        int x = (getWidth() - BtnLogin.getWidth()) / 2;
+        int y = (getHeight() - BtnLogin.getHeight()) / 2;
+
+        BtnLogin.setLocation(x, y);
     }
 
     /**
@@ -28,21 +45,197 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        TxtUser = new javax.swing.JTextField();
+        BtnLogin = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        TxtPass = new javax.swing.JPasswordField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("INICIO DE SESIÓN");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Usuario");
+
+        TxtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtUser.setText("Ej: tecnico");
+        TxtUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TxtUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtUserFocusLost(evt);
+            }
+        });
+
+        BtnLogin.setText("Iniciar sesión");
+        BtnLogin.addActionListener(this::BtnLoginActionPerformed);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Contraseña");
+
+        TxtPass.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TxtPass.setText("1234567890");
+        TxtPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TxtPassFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TxtPassFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtUser)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtPass))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(BtnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TxtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(BtnLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLoginActionPerformed
+        String user = TxtUser.getText();
+        String pass = String.valueOf(TxtPass.getPassword());
+
+        if (user.equals("Ej: tecnico") || pass.equals("1234567890")) {
+            JOptionPane.showMessageDialog(null,
+                    "Debe ingresar un nombre y contraseña válidos",
+                    "¡Error!",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            String sql = "SELECT * FROM tecnicos WHERE user = ? AND password = ?";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setString(1, user);
+            ps.setString(2, pass);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                tecnico.setIdTecnico(rs.getInt("id_tecnico"));
+                tecnico.setUser(rs.getString("user"));
+                tecnico.setIsAdmin(rs.getBoolean("admin"));
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Bienvenido " + tecnico.getUser()
+                );
+
+                if (tecnico.IsAdmin()) {
+                    Sistema main = new Sistema(tecnico);
+                    main.setLocationRelativeTo(null);
+                    main.setVisible(true);
+                    main.pack();
+
+                } else {
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Usuario o contraseña incorrectos",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null,
+                    "Error: " + e.getMessage());
+
+        } finally {
+            this.dispose();
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnLoginActionPerformed
+
+    private void TxtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtUserFocusGained
+        // TODO add your handling code here:
+        String user = TxtUser.getText();
+
+        if (user.equals("Ej: tecnico")) {
+            TxtUser.setText("");
+        }
+    }//GEN-LAST:event_TxtUserFocusGained
+
+    private void TxtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtUserFocusLost
+        // TODO add your handling code here:
+        String user = TxtUser.getText();
+
+        if (user.equals("")) {
+            TxtUser.setText("Ej: tecnico");
+        }
+    }//GEN-LAST:event_TxtUserFocusLost
+
+    private void TxtPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtPassFocusGained
+        // TODO add your handling code here:
+        String pass = String.valueOf(TxtPass.getPassword());
+
+        if (pass.equals("1234567890")) {
+            TxtPass.setText("");
+        }
+    }//GEN-LAST:event_TxtPassFocusGained
+
+    private void TxtPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TxtPassFocusLost
+        // TODO add your handling code here:
+        String pass = String.valueOf(TxtPass.getPassword());
+
+        if (pass.equals("")) {
+            TxtPass.setText("1234567890");
+        }
+    }//GEN-LAST:event_TxtPassFocusLost
 
     /**
      * @param args the command line arguments
@@ -70,5 +263,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnLogin;
+    private javax.swing.JPasswordField TxtPass;
+    private javax.swing.JTextField TxtUser;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
