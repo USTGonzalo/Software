@@ -5,6 +5,7 @@
 package views;
 
 import DataBase.Conexion;
+import Models.Software;
 import Models.Tecnicos;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -63,6 +64,12 @@ public class Sistema extends javax.swing.JFrame {
         cargarMantenimientos();
 
         crearMenuTabla();
+
+        cargarSoftwares();
+
+        cargarSoftware();
+
+        cargarActualizacionesSoftware();
 
         BoxNewStatus.removeAllItems();
         BoxNewStatus.addItem("Lleno");
@@ -246,6 +253,8 @@ public class Sistema extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         TxtNewUbi = new javax.swing.JTextArea();
+        jLabel100 = new javax.swing.JLabel();
+        BoxSoftware = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
         jSeparator31 = new javax.swing.JSeparator();
@@ -262,6 +271,8 @@ public class Sistema extends javax.swing.JFrame {
         TxtEditUbi = new javax.swing.JTextArea();
         BtnDeleteEquip = new javax.swing.JButton();
         BtnEditEquip = new javax.swing.JButton();
+        jLabel80 = new javax.swing.JLabel();
+        BoxEditSoftware = new javax.swing.JComboBox<>();
         jPanel17 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
@@ -300,6 +311,42 @@ public class Sistema extends javax.swing.JFrame {
         BtnDeletePart = new javax.swing.JButton();
         BtnEditPart = new javax.swing.JButton();
         BoxEditStatus = new javax.swing.JComboBox<>();
+        jPanel15 = new javax.swing.JPanel();
+        jPanel16 = new javax.swing.JPanel();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        TblSoftware = new javax.swing.JTable();
+        jLabel79 = new javax.swing.JLabel();
+        jSeparator43 = new javax.swing.JSeparator();
+        jLabel96 = new javax.swing.JLabel();
+        jSeparator44 = new javax.swing.JSeparator();
+        jSeparator45 = new javax.swing.JSeparator();
+        jLabel97 = new javax.swing.JLabel();
+        TxtNewSoftwareName = new javax.swing.JTextField();
+        BtnClearSoftware = new javax.swing.JButton();
+        BtnCreateSoftware = new javax.swing.JButton();
+        TxtNewSoftwareVersion = new javax.swing.JTextField();
+        jLabel98 = new javax.swing.JLabel();
+        TxtNewSoftwareStatus = new javax.swing.JTextField();
+        jLabel99 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        TxtNewSoftwareDesc = new javax.swing.JTextArea();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel102 = new javax.swing.JLabel();
+        jSeparator46 = new javax.swing.JSeparator();
+        jLabel103 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        jLabel105 = new javax.swing.JLabel();
+        TxtEditSoftwareName = new javax.swing.JTextField();
+        TxtEditSoftwareNewVersion = new javax.swing.JTextField();
+        TxtEditSoftwareVersion = new javax.swing.JTextField();
+        jLabel106 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        TxtEditSoftwareStatus = new javax.swing.JTextField();
+        jScrollPane22 = new javax.swing.JScrollPane();
+        TxtEditSoftwareDesc = new javax.swing.JTextArea();
+        BtnDeleteSoftware = new javax.swing.JButton();
+        BtnEditSoftware = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -326,6 +373,44 @@ public class Sistema extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         TxtTecnic = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        TblActSoftwares = new javax.swing.JTable();
+        jLabel76 = new javax.swing.JLabel();
+        jSeparator36 = new javax.swing.JSeparator();
+        jLabel77 = new javax.swing.JLabel();
+        jSeparator40 = new javax.swing.JSeparator();
+        jSeparator41 = new javax.swing.JSeparator();
+        jLabel78 = new javax.swing.JLabel();
+        BtnClearMake = new javax.swing.JButton();
+        BtnMakeAct = new javax.swing.JButton();
+        BoxEquips2 = new javax.swing.JComboBox<>();
+        jLabel81 = new javax.swing.JLabel();
+        TxtActualVersion = new javax.swing.JTextField();
+        jLabel86 = new javax.swing.JLabel();
+        TxtNewVersion = new javax.swing.JTextField();
+        BoxStatus = new javax.swing.JComboBox<>();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel108 = new javax.swing.JLabel();
+        TxtSoftware = new javax.swing.JTextField();
+        TxtObs = new javax.swing.JTextField();
+        jLabel109 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel89 = new javax.swing.JLabel();
+        jSeparator42 = new javax.swing.JSeparator();
+        jLabel90 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        TxtEditSoftware = new javax.swing.JTextField();
+        TxtEditVersionAct = new javax.swing.JTextField();
+        TxtOldVersion = new javax.swing.JTextField();
+        jLabel93 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        TxtEditObsAct = new javax.swing.JTextArea();
+        BtnDeleteMake = new javax.swing.JButton();
+        BtnEditMake = new javax.swing.JButton();
+        BoxEditStatusAct = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -373,6 +458,12 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel10.setText("Permisos:");
+
+        TxtActualUser.setEditable(false);
+
+        TxtActualPass.setEditable(false);
+
+        TxtActualAdmin.setEditable(false);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Usuario:");
@@ -706,6 +797,10 @@ public class Sistema extends javax.swing.JFrame {
         TxtNewUbi.setAutoscrolls(false);
         jScrollPane10.setViewportView(TxtNewUbi);
 
+        jLabel100.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel100.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel100.setText("Software a instalar");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -726,7 +821,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(TxtNewType)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                         .addComponent(BtnCreateEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(BtnClearEquip, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel54, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TxtNewMarca)
@@ -734,8 +829,10 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(TxtNewModel)
                     .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TxtNewNumber)
-                    .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane10))
+                    .addComponent(jScrollPane10)
+                    .addComponent(BoxSoftware, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel57, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -773,9 +870,13 @@ public class Sistema extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtNewNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel100)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BoxSoftware, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel57)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(BtnClearEquip)
@@ -814,6 +915,9 @@ public class Sistema extends javax.swing.JFrame {
         BtnEditEquip.setText("Actualizar");
         BtnEditEquip.addActionListener(this::BtnEditEquipActionPerformed);
 
+        jLabel80.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel80.setText("Software:");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -838,14 +942,16 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(TxtEditType, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                             .addComponent(TxtEditMarca)
                             .addComponent(TxtEditModel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel80, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane11)
-                            .addComponent(TxtEditNumber))))
+                            .addComponent(TxtEditNumber)
+                            .addComponent(BoxEditSoftware, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -861,27 +967,31 @@ public class Sistema extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel59)
-                                    .addComponent(TxtEditType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel60)
-                                    .addComponent(TxtEditMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel62)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel63)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel61)
-                            .addComponent(TxtEditModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(TxtEditNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel59)
+                            .addComponent(TxtEditType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel60)
+                            .addComponent(TxtEditMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel62)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel63)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel61)
+                        .addComponent(TxtEditModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BoxEditSoftware, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel80))
+                        .addGap(2, 2, 2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -902,7 +1012,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 165, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1001,7 +1111,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(TxtNewName)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                         .addComponent(BtnCreatePart, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addComponent(BtnClearPart, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel66, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TxtNewType2)
@@ -1115,7 +1225,7 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(TxtEditName, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                             .addComponent(TxtEditType2)
                             .addComponent(TxtEditMonth))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1184,6 +1294,277 @@ public class Sistema extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Piezas", jPanel17);
+
+        jPanel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        TblSoftware.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Versión Antigua", "Última versión", "Versión Actual", "Estado", "Descripción"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TblSoftware.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblSoftwareMouseClicked(evt);
+            }
+        });
+        jScrollPane17.setViewportView(TblSoftware);
+
+        jLabel79.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel79.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel79.setText("Software existente");
+
+        jSeparator43.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel96.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel96.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel96.setText("Nuevo software");
+
+        jLabel97.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel97.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel97.setText("Nombre");
+
+        TxtNewSoftwareName.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        BtnClearSoftware.setText("Limpiar");
+        BtnClearSoftware.addActionListener(this::BtnClearSoftwareActionPerformed);
+
+        BtnCreateSoftware.setText("Crear");
+        BtnCreateSoftware.addActionListener(this::BtnCreateSoftwareActionPerformed);
+
+        TxtNewSoftwareVersion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel98.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel98.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel98.setText("Versión actual");
+
+        TxtNewSoftwareStatus.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel99.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel99.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel99.setText("Estado");
+
+        jLabel101.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel101.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel101.setText("Descripción");
+
+        TxtNewSoftwareDesc.setColumns(20);
+        TxtNewSoftwareDesc.setLineWrap(true);
+        TxtNewSoftwareDesc.setRows(5);
+        TxtNewSoftwareDesc.setAutoscrolls(false);
+        jScrollPane21.setViewportView(TxtNewSoftwareDesc);
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
+                    .addComponent(jSeparator44)
+                    .addComponent(jLabel79, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator43, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel96, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator45)
+                    .addComponent(jLabel97, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtNewSoftwareName)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                        .addComponent(BtnCreateSoftware, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                        .addComponent(BtnClearSoftware, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel98, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtNewSoftwareVersion)
+                    .addComponent(jLabel99, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtNewSoftwareStatus)
+                    .addComponent(jLabel101, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane21))
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator43)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel79)
+                            .addComponent(jLabel96))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jSeparator44, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel16Layout.createSequentialGroup()
+                                .addComponent(jSeparator45, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel97)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNewSoftwareName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel98)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNewSoftwareVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel99)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNewSoftwareStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel101)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane21, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(BtnClearSoftware)
+                                    .addComponent(BtnCreateSoftware))))))
+                .addContainerGap())
+        );
+
+        jPanel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel102.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel102.setText("Información actual");
+
+        jLabel103.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel103.setText("Nombre:");
+
+        jLabel104.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel104.setText("Versión Actual:");
+
+        jLabel105.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel105.setText("Versión Nueva:");
+
+        TxtEditSoftwareVersion.setEditable(false);
+        TxtEditSoftwareVersion.setFocusable(false);
+
+        jLabel106.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel106.setText("Estado:");
+
+        jLabel107.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel107.setText("Descripción");
+
+        TxtEditSoftwareDesc.setColumns(20);
+        TxtEditSoftwareDesc.setLineWrap(true);
+        TxtEditSoftwareDesc.setRows(5);
+        jScrollPane22.setViewportView(TxtEditSoftwareDesc);
+
+        BtnDeleteSoftware.setText("Eliminar");
+        BtnDeleteSoftware.addActionListener(this::BtnDeleteSoftwareActionPerformed);
+
+        BtnEditSoftware.setText("Actualizar");
+        BtnEditSoftware.addActionListener(this::BtnEditSoftwareActionPerformed);
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator46)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel102)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnEditSoftware)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnDeleteSoftware))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel105, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel104, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(jLabel103, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TxtEditSoftwareName, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(TxtEditSoftwareVersion)
+                            .addComponent(TxtEditSoftwareNewVersion))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel106, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane22)
+                            .addComponent(TxtEditSoftwareStatus))))
+                .addContainerGap())
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel102)
+                    .addComponent(BtnDeleteSoftware)
+                    .addComponent(BtnEditSoftware))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator46, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel103)
+                                    .addComponent(TxtEditSoftwareName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel104)
+                                    .addComponent(TxtEditSoftwareVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addComponent(jLabel106)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel107)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel105)
+                            .addComponent(TxtEditSoftwareNewVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(TxtEditSoftwareStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Software", jPanel15);
 
         jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1275,7 +1656,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator38)
-                    .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+                    .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
                     .addComponent(jScrollPane16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1343,7 +1724,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addComponent(jLabel88)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(BtnClearMain)
                                     .addComponent(BtnCreateMain))))))
@@ -1369,15 +1750,303 @@ public class Sistema extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Mantenimientos", jPanel4);
 
+        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        TblActSoftwares.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Equipo", "Software", "Versión anterior", "Versión nueva", "Fecha", "Tecnico", "Estado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TblActSoftwares.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TblActSoftwaresMouseClicked(evt);
+            }
+        });
+        jScrollPane15.setViewportView(TblActSoftwares);
+
+        jLabel76.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel76.setText("Actualizaciones de software");
+
+        jSeparator36.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel77.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel77.setText("Nueva actualización");
+
+        jLabel78.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel78.setText("Equipo");
+
+        BtnClearMake.setText("Limpiar");
+        BtnClearMake.addActionListener(this::BtnClearMakeActionPerformed);
+
+        BtnMakeAct.setText("Realizar");
+        BtnMakeAct.addActionListener(this::BtnMakeActActionPerformed);
+
+        BoxEquips2.addActionListener(this::BoxEquips2ActionPerformed);
+
+        jLabel81.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel81.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel81.setText("Versión actual");
+
+        TxtActualVersion.setEditable(false);
+        TxtActualVersion.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel86.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel86.setText("Versión nueva");
+
+        BoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exitosa", "Fallida" }));
+
+        jLabel95.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel95.setText("Estado");
+
+        jLabel108.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel108.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel108.setText("Software instalado");
+
+        TxtSoftware.setEditable(false);
+        TxtSoftware.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel109.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel109.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel109.setText("Observación");
+
+        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
+        jPanel12.setLayout(jPanel12Layout);
+        jPanel12Layout.setHorizontalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator40)
+                    .addComponent(jLabel76, javax.swing.GroupLayout.DEFAULT_SIZE, 695, Short.MAX_VALUE)
+                    .addComponent(jScrollPane15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel108, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(TxtSoftware)
+                            .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(TxtActualVersion)
+                            .addComponent(jLabel86, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(TxtNewVersion)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel12Layout.createSequentialGroup()
+                                    .addComponent(BtnMakeAct, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(BtnClearMake, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                                .addComponent(jLabel78, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jSeparator41, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel77, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BoxEquips2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel95, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BoxStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel109, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TxtObs, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel12Layout.setVerticalGroup(
+            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator36)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel76)
+                            .addComponent(jLabel77))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jSeparator40, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(jSeparator41, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel78)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BoxEquips2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel108)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtSoftware, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel81)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtActualVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel86)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtNewVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel95)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel109)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtObs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(BtnClearMake)
+                                    .addComponent(BtnMakeAct))))))
+                .addContainerGap())
+        );
+
+        jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel89.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel89.setText("Información actual");
+
+        jLabel90.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel90.setText("Software:");
+
+        jLabel91.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel91.setText("Versión anterior:");
+
+        jLabel92.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel92.setText("Versión actualizada:");
+
+        TxtEditSoftware.setEditable(false);
+
+        TxtOldVersion.setEditable(false);
+
+        jLabel93.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel93.setText("Estado:");
+
+        jLabel94.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel94.setText("Observación:");
+
+        TxtEditObsAct.setColumns(20);
+        TxtEditObsAct.setLineWrap(true);
+        TxtEditObsAct.setRows(5);
+        jScrollPane20.setViewportView(TxtEditObsAct);
+
+        BtnDeleteMake.setText("Eliminar");
+        BtnDeleteMake.addActionListener(this::BtnDeleteMakeActionPerformed);
+
+        BtnEditMake.setText("Actualizar");
+        BtnEditMake.addActionListener(this::BtnEditMakeActionPerformed);
+
+        BoxEditStatusAct.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exitosa", "Fallida" }));
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator42)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(jLabel89)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnEditMake)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtnDeleteMake))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel92, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel91, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                            .addComponent(jLabel90, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TxtEditSoftware, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                            .addComponent(TxtOldVersion)
+                            .addComponent(TxtEditVersionAct))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel93, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane20)
+                            .addComponent(BoxEditStatusAct, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel89)
+                    .addComponent(BtnDeleteMake)
+                    .addComponent(BtnEditMake))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator42, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel90)
+                                    .addComponent(TxtEditSoftware, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel91)
+                                    .addComponent(TxtOldVersion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel14Layout.createSequentialGroup()
+                                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BoxEditStatusAct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel93))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel94)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel92)
+                            .addComponent(TxtEditVersionAct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 986, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Actualizaciones", jPanel5);
@@ -1406,16 +2075,154 @@ public class Sistema extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void crearMenuTabla() {
+
         JPopupMenu menu = new JPopupMenu();
 
         JMenuItem itemDetalles
                 = new JMenuItem("Detalles");
 
+        JMenuItem itemEliminar
+                = new JMenuItem("Eliminar");
+
         itemDetalles.addActionListener(e -> abrirDetalles());
 
+        itemEliminar.addActionListener(e -> eliminarMantenimiento());
+
         menu.add(itemDetalles);
+        menu.add(itemEliminar);
 
         TblMain.setComponentPopupMenu(menu);
+    }
+
+    private void eliminarMantenimiento() {
+
+        int fila = TblMain.getSelectedRow();
+
+        if (fila == -1) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione un mantenimiento"
+            );
+
+            return;
+        }
+
+        int confirmacion = JOptionPane.showConfirmDialog(
+                null,
+                "¿Desea eliminar este mantenimiento?",
+                "Confirmar",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirmacion != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        int idMantenimiento
+                = Integer.parseInt(
+                        TblMain.getValueAt(fila, 0).toString()
+                );
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            String sqlDetalle
+                    = "DELETE FROM detalle_mantenimiento "
+                    + "WHERE id_mantenimiento = ?";
+
+            PreparedStatement psDetalle
+                    = cn.prepareStatement(sqlDetalle);
+
+            psDetalle.setInt(1, idMantenimiento);
+
+            psDetalle.executeUpdate();
+
+            psDetalle.close();
+
+            String sqlMain
+                    = "DELETE FROM mantenimientos "
+                    + "WHERE id_mantenimiento = ?";
+
+            PreparedStatement psMain
+                    = cn.prepareStatement(sqlMain);
+
+            psMain.setInt(1, idMantenimiento);
+
+            psMain.executeUpdate();
+
+            psMain.close();
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Mantenimiento eliminado correctamente"
+            );
+
+            cargarMantenimientos();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }
+
+    private void cargarSoftwares() {
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            BoxSoftware.removeAllItems();
+
+            String sql = "SELECT * FROM softwares";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Software software = new Software();
+
+                software.setIdSoftware(
+                        rs.getInt("id_software")
+                );
+
+                software.setNombre(
+                        rs.getString("nombre")
+                );
+
+                BoxSoftware.addItem(software);
+                BoxEditSoftware.addItem(software);
+
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Error cargando softwares: "
+                    + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
     }
 
     private void abrirDetalles() {
@@ -1612,8 +2419,12 @@ public class Sistema extends javax.swing.JFrame {
     private void BtnEditEquipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditEquipActionPerformed
         // TODO add your handling code here:
         if (idEquipo == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Seleccione un equipo");
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione un equipo"
+            );
+
             return;
         }
 
@@ -1623,33 +2434,62 @@ public class Sistema extends javax.swing.JFrame {
         String numero = TxtEditNumber.getText();
         String ubi = TxtEditUbi.getText();
 
-        if (tipo.isEmpty() || marca.isEmpty() || modelo.isEmpty()
-                || numero.isEmpty() || ubi.isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-                    "Complete todos los campos");
+        Software software
+                = (Software) BoxEditSoftware.getSelectedItem();
+
+        if (tipo.isEmpty()
+                || marca.isEmpty()
+                || modelo.isEmpty()
+                || numero.isEmpty()
+                || ubi.isEmpty()
+                || software == null) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Complete todos los campos"
+            );
+
             return;
         }
+
         Connection cn = null;
 
         try {
 
             cn = Conexion.conectar();
 
-            String sql = "UPDATE equipos SET tipo_equipo=?, marca=?, modelo=?, numero_serie=?, ubicacion=? WHERE id_equipo=?";
+            String sql
+                    = "UPDATE equipos SET "
+                    + "tipo_equipo=?, "
+                    + "marca=?, "
+                    + "modelo=?, "
+                    + "numero_serie=?, "
+                    + "ubicacion=?, "
+                    + "id_software=? "
+                    + "WHERE id_equipo=?";
 
-            PreparedStatement ps = cn.prepareStatement(sql);
+            PreparedStatement ps
+                    = cn.prepareStatement(sql);
 
             ps.setString(1, tipo);
             ps.setString(2, marca);
             ps.setString(3, modelo);
             ps.setString(4, numero);
             ps.setString(5, ubi);
-            ps.setInt(6, idEquipo);
+
+            ps.setInt(
+                    6,
+                    software.getIdSoftware()
+            );
+
+            ps.setInt(7, idEquipo);
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null,
-                    "Equipo actualizado");
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Equipo actualizado"
+            );
 
             cargarTablaEquipos();
 
@@ -1657,9 +2497,13 @@ public class Sistema extends javax.swing.JFrame {
 
         } catch (Exception e) {
 
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(
+                    null,
+                    e.getMessage()
+            );
 
         } finally {
+
             Conexion.desconectar(cn);
         }
     }//GEN-LAST:event_BtnEditEquipActionPerformed
@@ -1720,10 +2564,21 @@ public class Sistema extends javax.swing.JFrame {
         String numero = TxtNewNumber.getText();
         String ubi = TxtNewUbi.getText();
 
-        if (tipo.isEmpty() || marca.isEmpty() || modelo.isEmpty()
-                || numero.isEmpty() || ubi.isEmpty()) {
-            JOptionPane.showMessageDialog(null,
-                    "Complete todos los campos");
+        Software software
+                = (Software) BoxSoftware.getSelectedItem();
+
+        if (tipo.isEmpty()
+                || marca.isEmpty()
+                || modelo.isEmpty()
+                || numero.isEmpty()
+                || ubi.isEmpty()
+                || software == null) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Complete todos los campos"
+            );
+
             return;
         }
 
@@ -1733,9 +2588,18 @@ public class Sistema extends javax.swing.JFrame {
 
             cn = Conexion.conectar();
 
-            String sql = "INSERT INTO equipos(tipo_equipo, marca, modelo, numero_serie, ubicacion) VALUES(?,?,?,?,?)";
+            String sql
+                    = "INSERT INTO equipos("
+                    + "tipo_equipo, "
+                    + "marca, "
+                    + "modelo, "
+                    + "numero_serie, "
+                    + "ubicacion, "
+                    + "id_software"
+                    + ") VALUES(?,?,?,?,?,?)";
 
-            PreparedStatement ps = cn.prepareStatement(sql);
+            PreparedStatement ps
+                    = cn.prepareStatement(sql);
 
             ps.setString(1, tipo);
             ps.setString(2, marca);
@@ -1743,10 +2607,17 @@ public class Sistema extends javax.swing.JFrame {
             ps.setString(4, numero);
             ps.setString(5, ubi);
 
+            ps.setInt(
+                    6,
+                    software.getIdSoftware()
+            );
+
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null,
-                    "Equipo creado correctamente");
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Equipo creado correctamente"
+            );
 
             cargarTablaEquipos();
 
@@ -1756,11 +2627,16 @@ public class Sistema extends javax.swing.JFrame {
             TxtNewNumber.setText("");
             TxtNewUbi.setText("");
 
+            BoxSoftware.setSelectedIndex(0);
+
             ps.close();
 
         } catch (Exception e) {
 
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(
+                    null,
+                    e.getMessage()
+            );
 
         } finally {
 
@@ -2023,6 +2899,795 @@ public class Sistema extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnCreateMainActionPerformed
 
+    private void BtnClearMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearMakeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnClearMakeActionPerformed
+
+    private void BtnMakeActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMakeActActionPerformed
+        equips equipo = (equips) BoxEquips2.getSelectedItem();
+
+        if (equipo == null) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione un equipo"
+            );
+
+            return;
+        }
+
+        String software = TxtSoftware.getText();
+        String versionActual = TxtActualVersion.getText();
+        String nuevaVersion = TxtNewVersion.getText();
+        String estado = BoxStatus.getSelectedItem().toString();
+        String observaciones = TxtObs.getText();
+
+        if (software.isEmpty()
+                || versionActual.isEmpty()
+                || nuevaVersion.isEmpty()) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Complete todos los campos"
+            );
+
+            return;
+        }
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            /*
+            OBTENER ID DEL SOFTWARE
+             */
+            String sqlSoftware
+                    = "SELECT id_software "
+                    + "FROM softwares "
+                    + "WHERE nombre = ?";
+
+            PreparedStatement psSoftware
+                    = cn.prepareStatement(sqlSoftware);
+
+            psSoftware.setString(1, software);
+
+            ResultSet rs = psSoftware.executeQuery();
+
+            int idSoftware = 0;
+
+            if (rs.next()) {
+
+                idSoftware = rs.getInt("id_software");
+
+            } else {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Software no encontrado"
+                );
+
+                return;
+            }
+
+            rs.close();
+            psSoftware.close();
+
+            /*
+            INSERTAR EN TABLA software
+             */
+            String sqlInsert
+                    = "INSERT INTO software "
+                    + "(id_equipo, id_software_catalogo, "
+                    + "fecha_actualizacion, id_tecnico, estado, observaciones) "
+                    + "VALUES (?, ?, NOW(), ?, ?, ?)";
+
+            PreparedStatement psInsert
+                    = cn.prepareStatement(sqlInsert);
+
+            psInsert.setInt(1, equipo.getIdEquipo());
+            psInsert.setInt(2, idSoftware);
+            psInsert.setInt(3, tecnico.getIdTecnico());
+            psInsert.setString(4, estado);
+            psInsert.setString(5, observaciones);
+
+            psInsert.executeUpdate();
+
+            psInsert.close();
+
+            /*
+            SOLO SI LA ACTUALIZACION ES EXITOSA
+             */
+            if (estado.equals("Exitosa")) {
+
+                String sqlUpdate
+                        = "UPDATE softwares SET "
+                        + "version_antigua = version_actual, "
+                        + "version_actual = ?, "
+                        + "ultima_version = ? "
+                        + "WHERE id_software = ?";
+
+                PreparedStatement psUpdate
+                        = cn.prepareStatement(sqlUpdate);
+
+                psUpdate.setString(1, nuevaVersion);
+                psUpdate.setString(2, nuevaVersion);
+                psUpdate.setInt(3, idSoftware);
+
+                psUpdate.executeUpdate();
+
+                psUpdate.close();
+            }
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Actualización realizada correctamente"
+            );
+
+            cargarActualizacionesSoftware();
+            cargarSoftware();
+
+            /*
+            LIMPIAR CAMPOS
+             */
+            TxtSoftware.setText("");
+            TxtActualVersion.setText("");
+            TxtNewVersion.setText("");
+            TxtObs.setText("");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnMakeActActionPerformed
+
+    private void BtnDeleteMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteMakeActionPerformed
+        // TODO add your handling code here:
+        int fila = TblActSoftwares.getSelectedRow();
+
+        if (fila == -1) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione una actualización"
+            );
+
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(
+                null,
+                "¿Desea eliminar esta actualización?",
+                "Confirmar",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirmar != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            int idActualizacion = Integer.parseInt(
+                    TblActSoftwares.getValueAt(fila, 0).toString()
+            );
+
+            String sql
+                    = "DELETE FROM software "
+                    + "WHERE id_software = ?";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setInt(1, idActualizacion);
+
+            ps.executeUpdate();
+
+            ps.close();
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Actualización eliminada correctamente"
+            );
+
+            cargarActualizacionesSoftware();
+
+            /*
+            LIMPIAR CAMPOS
+             */
+            TxtEditSoftware.setText("");
+            TxtOldVersion.setText("");
+            TxtEditVersionAct.setText("");
+            TxtEditObsAct.setText("");
+
+            BoxEditStatusAct.setSelectedIndex(0);
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnDeleteMakeActionPerformed
+
+    private void BtnEditMakeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditMakeActionPerformed
+        // TODO add your handling code here:
+        int fila = TblActSoftwares.getSelectedRow();
+
+        if (fila == -1) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione una actualización"
+            );
+
+            return;
+        }
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            int idRegistro = Integer.parseInt(
+                    TblActSoftwares.getValueAt(fila, 0).toString()
+            );
+
+            String nuevaVersion = TxtEditVersionAct.getText();
+            String estado = BoxEditStatusAct.getSelectedItem().toString();
+            String observaciones = TxtEditObsAct.getText();
+
+            /*
+            ACTUALIZAR TABLA software
+             */
+            String sql
+                    = "UPDATE software SET "
+                    + "estado = ?, "
+                    + "observaciones = ? "
+                    + "WHERE id_software = ?";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setString(1, estado);
+            ps.setString(2, observaciones);
+            ps.setInt(3, idRegistro);
+
+            ps.executeUpdate();
+
+            ps.close();
+
+            /*
+            SOLO SI ES EXITOSA
+             */
+            if (estado.equals("Exitosa")) {
+
+                /*
+                OBTENER ID SOFTWARE CATALOGO
+                 */
+                String sqlGet
+                        = "SELECT id_software_catalogo "
+                        + "FROM software "
+                        + "WHERE id_software = ?";
+
+                PreparedStatement psGet
+                        = cn.prepareStatement(sqlGet);
+
+                psGet.setInt(1, idRegistro);
+
+                ResultSet rs = psGet.executeQuery();
+
+                int idSoftwareCatalogo = 0;
+
+                if (rs.next()) {
+
+                    idSoftwareCatalogo = rs.getInt(
+                            "id_software_catalogo"
+                    );
+                }
+
+                rs.close();
+                psGet.close();
+
+                /*
+                ACTUALIZAR VERSIONES
+                 */
+                String sqlUpdate
+                        = "UPDATE softwares SET "
+                        + "version_antigua = version_actual, "
+                        + "version_actual = ?, "
+                        + "ultima_version = ? "
+                        + "WHERE id_software = ?";
+
+                PreparedStatement psUpdate
+                        = cn.prepareStatement(sqlUpdate);
+
+                psUpdate.setString(1, nuevaVersion);
+                psUpdate.setString(2, nuevaVersion);
+                psUpdate.setInt(3, idSoftwareCatalogo);
+
+                psUpdate.executeUpdate();
+
+                psUpdate.close();
+            }
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Actualización realizada"
+            );
+
+            cargarActualizacionesSoftware();
+            cargarSoftware();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnEditMakeActionPerformed
+
+    private void BtnClearSoftwareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearSoftwareActionPerformed
+        // TODO add your handling code here:
+        TxtNewSoftwareName.setText("");
+        TxtNewSoftwareVersion.setText("");
+        TxtNewSoftwareStatus.setText("");
+        TxtNewSoftwareDesc.setText("");
+
+        TxtEditSoftwareName.setText("");
+        TxtEditSoftwareVersion.setText("");
+        TxtEditSoftwareNewVersion.setText("");
+        TxtEditSoftwareStatus.setText("");
+        TxtEditSoftwareDesc.setText("");
+
+        TblSoftware.clearSelection();
+    }//GEN-LAST:event_BtnClearSoftwareActionPerformed
+
+    private void BtnCreateSoftwareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCreateSoftwareActionPerformed
+        // TODO add your handling code here:
+        Connection cn = null;
+
+        try {
+
+            String nombre = TxtNewSoftwareName.getText();
+            String version = TxtNewSoftwareVersion.getText();
+            String estado = TxtNewSoftwareStatus.getText();
+            String descripcion = TxtNewSoftwareDesc.getText();
+
+            if (nombre.isEmpty()
+                    || version.isEmpty()
+                    || estado.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Complete los campos"
+                );
+
+                return;
+            }
+
+            cn = Conexion.conectar();
+
+            String sql
+                    = "INSERT INTO softwares "
+                    + "(nombre, version_antigua, ultima_version, version_actual, estado, descripcion) "
+                    + "VALUES (?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setString(1, nombre);
+
+            // version antigua
+            ps.setString(2, version);
+
+            // ultima version
+            ps.setString(3, version);
+
+            // version actual
+            ps.setString(4, version);
+
+            ps.setString(5, estado);
+            ps.setString(6, descripcion);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Software registrado"
+            );
+
+            cargarSoftware();
+
+            TxtNewSoftwareName.setText("");
+            TxtNewSoftwareVersion.setText("");
+            TxtNewSoftwareStatus.setText("");
+            TxtNewSoftwareDesc.setText("");
+
+            ps.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnCreateSoftwareActionPerformed
+
+    private void BtnDeleteSoftwareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeleteSoftwareActionPerformed
+        // TODO add your handling code here:
+        int fila = TblSoftware.getSelectedRow();
+
+        if (fila == -1) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione un software"
+            );
+
+            return;
+        }
+
+        int confirmar = JOptionPane.showConfirmDialog(
+                null,
+                "¿Desea eliminar este software?",
+                "Confirmar",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirmar != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        Connection cn = null;
+
+        try {
+
+            int idSoftware = Integer.parseInt(
+                    TblSoftware.getValueAt(fila, 0).toString()
+            );
+
+            cn = Conexion.conectar();
+
+            String sql
+                    = "DELETE FROM softwares "
+                    + "WHERE id_software = ?";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setInt(1, idSoftware);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Software eliminado"
+            );
+
+            cargarSoftware();
+
+            ps.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnDeleteSoftwareActionPerformed
+
+    private void BtnEditSoftwareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditSoftwareActionPerformed
+        int fila = TblSoftware.getSelectedRow();
+
+        if (fila == -1) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Seleccione un software"
+            );
+
+            return;
+        }
+
+        Connection cn = null;
+
+        try {
+
+            int idSoftware = Integer.parseInt(
+                    TblSoftware.getValueAt(fila, 0).toString()
+            );
+
+            String nombre = TxtEditSoftwareName.getText();
+
+            String versionActual
+                    = TxtEditSoftwareVersion.getText();
+
+            String ultimaVersion
+                    = TxtEditSoftwareNewVersion.getText();
+
+            String estado
+                    = TxtEditSoftwareStatus.getText();
+
+            String descripcion
+                    = TxtEditSoftwareDesc.getText();
+
+            if (nombre.isEmpty()
+                    || versionActual.isEmpty()
+                    || ultimaVersion.isEmpty()
+                    || estado.isEmpty()) {
+
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Complete los campos"
+                );
+
+                return;
+            }
+
+            cn = Conexion.conectar();
+
+            String sql
+                    = "UPDATE softwares SET "
+                    + "nombre = ?, "
+                    + "ultima_version = ?, "
+                    + "version_actual = ?, "
+                    + "estado = ?, "
+                    + "descripcion = ? "
+                    + "WHERE id_software = ?";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setString(1, nombre);
+            ps.setString(2, ultimaVersion);
+            ps.setString(3, versionActual);
+            ps.setString(4, estado);
+            ps.setString(5, descripcion);
+            ps.setInt(6, idSoftware);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Software actualizado"
+            );
+
+            cargarSoftware();
+
+            ps.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BtnEditSoftwareActionPerformed
+
+    private void TblSoftwareMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblSoftwareMouseClicked
+        // TODO add your handling code here:
+        int fila = TblSoftware.getSelectedRow();
+
+        if (fila == -1) {
+            return;
+        }
+
+        TxtEditSoftwareName.setText(
+                TblSoftware.getValueAt(fila, 1).toString()
+        );
+
+        TxtEditSoftwareVersion.setText(
+                TblSoftware.getValueAt(fila, 4).toString()
+        );
+
+        Object nuevaVersion
+                = TblSoftware.getValueAt(fila, 3);
+
+        TxtEditSoftwareNewVersion.setText(
+                nuevaVersion != null
+                        ? nuevaVersion.toString()
+                        : ""
+        );
+
+        TxtEditSoftwareStatus.setText(
+                TblSoftware.getValueAt(fila, 5).toString()
+        );
+
+        Object descripcion
+                = TblSoftware.getValueAt(fila, 6);
+
+        TxtEditSoftwareDesc.setText(
+                descripcion != null
+                        ? descripcion.toString()
+                        : ""
+        );
+    }//GEN-LAST:event_TblSoftwareMouseClicked
+
+    private void BoxEquips2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BoxEquips2ActionPerformed
+        // TODO add your handling code here:
+        Connection cn = null;
+
+        try {
+
+            equips equipo = (equips) BoxEquips2.getSelectedItem();
+
+            if (equipo == null) {
+                return;
+            }
+
+            cn = Conexion.conectar();
+
+            String sql
+                    = "SELECT "
+                    + "s.id_software, "
+                    + "s.nombre, "
+                    + "s.version_actual, "
+                    + "s.ultima_version "
+                    + "FROM equipos e "
+                    + "INNER JOIN softwares s "
+                    + "ON e.id_software = s.id_software "
+                    + "WHERE e.id_equipo = ?";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ps.setInt(1, equipo.getIdEquipo());
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                TxtSoftware.setText(
+                        rs.getString("nombre")
+                );
+
+                TxtActualVersion.setText(
+                        rs.getString("version_actual")
+                );
+
+                TxtNewVersion.setText(
+                        rs.getString("ultima_version")
+                );
+
+            } else {
+
+                TxtSoftware.setText("");
+                TxtActualVersion.setText("");
+                TxtNewVersion.setText("");
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null,
+                    "Error: " + e.getMessage());
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }//GEN-LAST:event_BoxEquips2ActionPerformed
+
+    private void TblActSoftwaresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblActSoftwaresMouseClicked
+        // TODO add your handling code here:
+
+        int fila = TblActSoftwares.getSelectedRow();
+
+        if (fila == -1) {
+            return;
+        }
+
+        /*
+        CARGAR DATOS EN LOS CAMPOS
+         */
+        TxtEditSoftware.setText(
+                TblActSoftwares.getValueAt(fila, 2).toString()
+        );
+
+        TxtOldVersion.setText(
+                TblActSoftwares.getValueAt(fila, 3).toString()
+        );
+
+        Object versionNueva = TblActSoftwares.getValueAt(fila, 4);
+
+        TxtEditVersionAct.setText(
+                versionNueva != null
+                        ? versionNueva.toString()
+                        : ""
+        );
+
+        Object estado = TblActSoftwares.getValueAt(fila, 7);
+
+        if (estado != null) {
+
+            BoxEditStatusAct.setSelectedItem(
+                    estado.toString()
+            );
+        }
+    }//GEN-LAST:event_TblActSoftwaresMouseClicked
+
+    private void cargarSoftware() {
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            DefaultTableModel modelo
+                    = (DefaultTableModel) TblSoftware.getModel();
+
+            modelo.setRowCount(0);
+
+            String sql = "SELECT * FROM softwares";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                modelo.addRow(new Object[]{
+                    rs.getInt("id_software"),
+                    rs.getString("nombre"),
+                    rs.getString("version_antigua"),
+                    rs.getString("ultima_version"),
+                    rs.getString("version_actual"),
+                    rs.getString("estado"),
+                    rs.getString("descripcion")
+                });
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Error: " + e.getMessage()
+            );
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }
+
     private void cargarMantenimientos() {
 
         Connection cn = null;
@@ -2095,6 +3760,88 @@ public class Sistema extends javax.swing.JFrame {
         } catch (Exception e) {
 
             System.out.println("Error: " + e.getMessage());
+
+        } finally {
+
+            Conexion.desconectar(cn);
+        }
+    }
+
+    private void cargarActualizacionesSoftware() {
+
+        Connection cn = null;
+
+        try {
+
+            cn = Conexion.conectar();
+
+            DefaultTableModel modelo = new DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "ID",
+                        "Equipo",
+                        "Software",
+                        "Versión anterior",
+                        "Versión nueva",
+                        "Fecha",
+                        "Técnico",
+                        "Estado"
+                    }
+            ) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+
+            TblActSoftwares.setModel(modelo);
+
+            String sql
+                    = "SELECT "
+                    + "s.id_software, "
+                    + "e.modelo, "
+                    + "sw.nombre, "
+                    + "sw.version_antigua, "
+                    + "sw.version_actual, "
+                    + "s.fecha_actualizacion, "
+                    + "t.user AS tecnico, "
+                    + "s.estado "
+                    + "FROM software s "
+                    + "INNER JOIN equipos e "
+                    + "ON s.id_equipo = e.id_equipo "
+                    + "INNER JOIN softwares sw "
+                    + "ON s.id_software_catalogo = sw.id_software "
+                    + "LEFT JOIN tecnicos t "
+                    + "ON s.id_tecnico = t.id_tecnico "
+                    + "ORDER BY s.id_software DESC";
+
+            PreparedStatement ps = cn.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                modelo.addRow(new Object[]{
+                    rs.getInt("id_software"),
+                    rs.getString("modelo"),
+                    rs.getString("nombre"),
+                    rs.getString("version_antigua"),
+                    rs.getString("version_actual"),
+                    rs.getDate("fecha_actualizacion"),
+                    rs.getString("tecnico"),
+                    rs.getString("estado")
+                });
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: " + e.getMessage()
+            );
 
         } finally {
 
@@ -2235,6 +3982,7 @@ public class Sistema extends javax.swing.JFrame {
                 listaEquipos.add(equipo);
 
                 BoxEquip.addItem(equipo);
+                BoxEquips2.addItem(equipo);
             }
 
             rs.close();
@@ -2328,42 +4076,66 @@ public class Sistema extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> BoxEditAdmin;
+    private javax.swing.JComboBox<Software> BoxEditSoftware;
     private javax.swing.JComboBox<String> BoxEditStatus;
+    private javax.swing.JComboBox<String> BoxEditStatusAct;
     private javax.swing.JComboBox<equips> BoxEquip;
+    private javax.swing.JComboBox<equips> BoxEquips2;
     private javax.swing.JComboBox<String> BoxNewAdmin;
     private javax.swing.JComboBox<String> BoxNewStatus;
+    private javax.swing.JComboBox<Software> BoxSoftware;
+    private javax.swing.JComboBox<String> BoxStatus;
     private javax.swing.JButton BtnClearEquip;
     private javax.swing.JButton BtnClearMain;
+    private javax.swing.JButton BtnClearMake;
     private javax.swing.JButton BtnClearPart;
+    private javax.swing.JButton BtnClearSoftware;
     private javax.swing.JButton BtnClearTec;
     private javax.swing.JButton BtnCreateEquip;
     private javax.swing.JButton BtnCreateMain;
     private javax.swing.JButton BtnCreatePart;
+    private javax.swing.JButton BtnCreateSoftware;
     private javax.swing.JButton BtnCreateTec;
     private javax.swing.JButton BtnDeleteEquip;
+    private javax.swing.JButton BtnDeleteMake;
     private javax.swing.JButton BtnDeletePart;
+    private javax.swing.JButton BtnDeleteSoftware;
     private javax.swing.JButton BtnDeleteTec;
     private javax.swing.JButton BtnEditEquip;
+    private javax.swing.JButton BtnEditMake;
     private javax.swing.JButton BtnEditPart;
+    private javax.swing.JButton BtnEditSoftware;
+    private javax.swing.JButton BtnMakeAct;
     private javax.swing.JButton BtnUpdateTec;
+    private javax.swing.JTable TblActSoftwares;
     private javax.swing.JTable TblEquips;
     private javax.swing.JTable TblMain;
     private javax.swing.JTable TblParts;
+    private javax.swing.JTable TblSoftware;
     private javax.swing.JTable TblUsers;
     private javax.swing.JTextField TxtActualAdmin;
     private javax.swing.JTextField TxtActualPass;
     private javax.swing.JTextField TxtActualUser;
+    private javax.swing.JTextField TxtActualVersion;
     private javax.swing.JTextField TxtEditMarca;
     private javax.swing.JTextField TxtEditModel;
     private javax.swing.JTextField TxtEditMonth;
     private javax.swing.JTextField TxtEditName;
     private javax.swing.JTextField TxtEditNumber;
+    private javax.swing.JTextArea TxtEditObsAct;
     private javax.swing.JTextField TxtEditPass;
+    private javax.swing.JTextField TxtEditSoftware;
+    private javax.swing.JTextArea TxtEditSoftwareDesc;
+    private javax.swing.JTextField TxtEditSoftwareName;
+    private javax.swing.JTextField TxtEditSoftwareNewVersion;
+    private javax.swing.JTextField TxtEditSoftwareStatus;
+    private javax.swing.JTextField TxtEditSoftwareVersion;
     private javax.swing.JTextField TxtEditType;
     private javax.swing.JTextField TxtEditType2;
     private javax.swing.JTextArea TxtEditUbi;
     private javax.swing.JTextArea TxtEditUbi2;
     private javax.swing.JTextField TxtEditUser;
+    private javax.swing.JTextField TxtEditVersionAct;
     private javax.swing.JTextArea TxtNewDesc;
     private javax.swing.JTextField TxtNewMarca;
     private javax.swing.JTextField TxtNewModel;
@@ -2372,6 +4144,10 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTextField TxtNewNumber;
     private javax.swing.JTextArea TxtNewObs;
     private javax.swing.JPasswordField TxtNewPass;
+    private javax.swing.JTextArea TxtNewSoftwareDesc;
+    private javax.swing.JTextField TxtNewSoftwareName;
+    private javax.swing.JTextField TxtNewSoftwareStatus;
+    private javax.swing.JTextField TxtNewSoftwareVersion;
     private javax.swing.JTextField TxtNewStatusEquip;
     private javax.swing.JTextField TxtNewType;
     private javax.swing.JTextField TxtNewType2;
@@ -2379,9 +4155,23 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTextArea TxtNewUbi;
     private javax.swing.JTextArea TxtNewUbi2;
     private javax.swing.JTextField TxtNewUser;
+    private javax.swing.JTextField TxtNewVersion;
+    private javax.swing.JTextField TxtObs;
+    private javax.swing.JTextField TxtOldVersion;
+    private javax.swing.JTextField TxtSoftware;
     private javax.swing.JTextField TxtTecnic;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2420,19 +4210,42 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2447,9 +4260,14 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
+    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
+    private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane21;
+    private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -2462,10 +4280,18 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator33;
     private javax.swing.JSeparator jSeparator34;
     private javax.swing.JSeparator jSeparator35;
+    private javax.swing.JSeparator jSeparator36;
     private javax.swing.JSeparator jSeparator37;
     private javax.swing.JSeparator jSeparator38;
     private javax.swing.JSeparator jSeparator39;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator40;
+    private javax.swing.JSeparator jSeparator41;
+    private javax.swing.JSeparator jSeparator42;
+    private javax.swing.JSeparator jSeparator43;
+    private javax.swing.JSeparator jSeparator44;
+    private javax.swing.JSeparator jSeparator45;
+    private javax.swing.JSeparator jSeparator46;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPane1;
